@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Driver Track</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/angular-material.min.css">
+    <link rel="stylesheet" href="fonts/material-icons.css">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <script src="js/libs/angular.min.js"></script>
+    <script src="js/libs/angular-animate.min.js"></script>
+    <script src="js/libs/angular-aria.min.js"></script>
+    <script src="js/libs/angular-messages.min.js"></script>
+    <script src="js/libs/angular-sanitize.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLIpr6B8yOl_TBZCBamlv7QfloPvBI7Ws"></script>
+    <script src="js/libs/angular-material.min.js"></script>
+    <script src="js/libs/md-data-table.min.js"></script>
+    <script src="js/libs/lf-ng-md-file-input.min.js"></script>
+    <script src='js/libs/moment.min.js'></script>
+    <script src='js/libs/picker.js'></script>
+    <script src="js/app.js"></script>
+    <script src="js/directives/directives.js"></script>
+
+    <script src="js/controllers/drivertrackCtrl.js"></script>
+    <!--
+    <script src="js/controllers/driverlistingCtrl.js"></script>
+    <script src="js/controllers/drivertripdetailsCtrl.js"></script>
+    <script src="js/controllers/companylistingCtrl.js"></script>
+    <script src="js/controllers/viewallvehiclesCtrl.js"></script>
+    <script src="js/controllers/viewalldriversCtrl.js"></script>
+    <script src="js/controllers/companydetailCtrl.js"></script>
+    <script src="js/controllers/currentBookingCtrl.js"></script>
+    <script src="js/controllers/bookinghistoryCtrl.js"></script>
+    <script src="js/controllers/cancelledbookingCtrl.js"></script>
+    <script src="js/controllers/servicesCtrl.js"></script>
+    <script src="js/controllers/vehiclemasterCtrl.js"></script>
+    <script src="js/controllers/vehicleserviceCtrl.js"></script>
+    <script src="js/controllers/viewvehicleCtrl.js"></script>
+    <script src="js/controllers/documentmasterCtrl.js"></script>
+    <script src="js/controllers/userdetailsCtrl.js"></script>-->
+    <!--<script src="js/controllers/userlistingCtrl.js"></script>
+    <script src="js/controllers/customerRelatedDelayCtrl.js"></script>
+    <script src="js/controllers/customerRelatedDelayViewCtrl.js"></script>
+    <script src="js/controllers/settingCtrl.js"></script>
+    <script src="js/controllers/subadminlistingCtrl.js"></script>
+    <script src="js/controllers/addeditsubadminCtrl.js"></script>
+    <script src="js/controllers/invoiceCustomerCtrl.js"></script>
+    <script src="js/controllers/invoiceDriverCtrl.js"></script>
+    <script src="js/controllers/invoiceCompanyCtrl.js"></script>
+    <script src="js/controllers/homepageCtrl.js"></script>
+    <script src="js/controllers/vehicledetailsCtrl.js"></script>
+    <script src="js/controllers/viewindividualdriverCtrl.js"></script>
+    <script src="js/controllers/companydriverdetailsCtrl.js"></script>-->
+</head>
+
+<body ng-app="Freight" ng-controller="DriverTrackCtrl" layout="row" ng-cloak>
+    <sidenav drivernotificationcount></sidenav>
+    <section layout="column" flex>
+        <md-toolbar class="md-primary" md-whiteframe=2>
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" ng-click="toggleSidenav('left')">
+                    <md-icon>menu</md-icon>
+                </md-button>
+                <h2><span>FREIGHT</span></h2>
+                <span flex></span>
+                <!--<md-button class="md-icon-button">
+                    <md-icon>more_vert</md-icon>
+                </md-button>-->
+            </div>
+        </md-toolbar>
+        <md-content class="mdcontent">
+            <div class="contentt">
+                <div layout="row" class="pagetitle" layout-align="start center">
+                    <img src="img/title_indicator.svg" alt="">
+                    <h2 class="md-display-1 ">DRIVER TRACK</h2>
+                </div>
+                <md-divider></md-divider>
+                <div layout="row" class="breadcrumbs" layout-align="start center" flex>
+                    <a class="hovercol" href="index.html">
+                        <md-icon class="font20 ">home</md-icon><span>Home</span>
+                    </a>
+                    <a class="hovercol" href="driver_listing.html">
+                        <md-icon class="">keyboard_arrow_right</md-icon><span>Drivers</span>
+                    </a>
+                    <a class="hovercol" href="driver_trip_details.html">
+                        <md-icon class="">keyboard_arrow_right</md-icon><span>Driver Trip Details</span>
+                    </a>
+                    <a class="hovercol" href="#">
+                        <md-icon class="">keyboard_arrow_right</md-icon><span>Driver Track</span>
+                    </a>
+                </div>
+                <md-divider class="onerem_mt"></md-divider>
+                <h1 class="md-title tworem_mt default-text-color">Details</h1>
+                <div>
+                    <div layout-gt-sm="row" flex class="callout">
+                        <div flex>
+                            <div layout="row" layout-padding>
+                                <div class="default-text-color">Booking ID</div>
+                                <div flex></div>
+                                <div>45658746</div>
+                            </div>
+                            <div layout="row" layout-padding>
+                                <div class="default-text-color">From-To</div>
+                                <div flex></div>
+                                <div>Panjim-Margao</div>
+                            </div>
+                            <div layout="row" layout-padding>
+                                <div class="default-text-color">Driver Name</div>
+                                <div flex></div>
+                                <div>John</div>
+                            </div>
+                        </div>
+                        <div flex=5></div>
+                        <div flex>
+                            <div layout="row" layout-padding>
+                                <div class="default-text-color">Driver Contact</div>
+                                <div flex></div>
+                                <div>4456464646</div>
+                            </div>
+                            <div layout="row" layout-padding>
+                                <div class="default-text-color">Consignment Details</div>
+                                <div flex></div>
+                                <div>VehicleModel</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tworem_mt ">
+                    <div layout="row" layout-align="start center" class=" tworem_mt">
+                        <h1 class="md-title default-text-color">Track </h1>
+                        <div flex></div>
+                        <md-button class="md-primary" ng-click="">
+                            <md-icon>refresh</md-icon>
+                            refresh
+                        </md-button>
+                    </div>
+                    <div layout-gt-md="row" flex>
+                        <md-card class="padingzero">
+                            <md-table-container>
+                                <table md-table ng-model="selected" md-progress="promise">
+                                    <thead md-head md-order="query.order">
+                                        <tr md-row>
+                                            <th md-column>Sr No</th>
+                                            <th md-column>Last Location</th>
+                                            <th md-column>Booking Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody md-body>
+                                        <tr md-row ng-repeat="datas in tabledata.data| orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                                            <td md-cell>{{datas.id}}</td>
+                                            <td md-cell>{{datas.lastLocation}}</td>
+                                            <td md-cell>{{datas.bookingStatus}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </md-table-container>
+                        </md-card>
+                        <md-card class="padingzero relativepos" flex>
+                            <div class="mapoverlay" ng-if="mapOpened==true">
+                                <md-button class="md-primary md-raised map-track-button" ng-click="showMap()">Track</md-button>
+                            </div>
+                            <div id="map" class="map-drivertracking">
+                            </div>
+                        </md-card>
+                    </div>
+                </div>
+            </div>
+        </md-content>
+    </section>
+</body>
+<script>
+</script>
+
+</html>

@@ -1,0 +1,26 @@
+<!--from customerrelateddeealyview on click of addnote-->
+<md-dialog flex-gt-xs="70" flex-gt-sm="50" flex-xs="100">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Note </h2>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="pading_litle">
+            <md-input-container class="md-block">
+                <label>Note</label>
+                <textarea ng-model="user.note" md-maxlength="150" rows="5" ></textarea>
+            </md-input-container>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button class="md-primary" ng-click="hide()" style="margin-right:20px;">
+            ADD note
+        </md-button>
+        <md-button class="md-primary" ng-click="hide()" style="margin-right:20px;">
+            Cancel
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

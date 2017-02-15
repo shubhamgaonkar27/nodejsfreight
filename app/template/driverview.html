@@ -1,0 +1,102 @@
+<!--from dirver listing on click of view-->
+<md-dialog flex-gt-xs="70" flex-gt-sm="50" flex-xs="100">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Driver View </h2>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="">
+            <div layout="row" layout-padding layout-align="start center">
+                <div class="md-title fontweight300">John Smith</div>
+                <div flex></div>
+                <div>
+                    <md-icon class="font20 default-text-color_h">place</md-icon>London</div>
+                <div flex></div>
+                <div>
+                    <md-icon class="font20 default-text-color_h">phone</md-icon>99845658746</div>
+            </div>
+            <md-divider></md-divider>
+
+            <div class="pading_litle">
+          
+            <div layout="row"  layout-align="start center" ng-repeat="data in docData.data">
+                
+
+                <div layout="row"  layout-align="start center">
+                    <div flex class="">{{ff}}</div>
+                   
+                    <div flex="30"><span class="default-text-color">Expiry Date : </span>12-12-2016</div>
+                    
+                    <div flex="10">
+                        <md-button class=" tablebtn md-icon-button" >
+                            <md-tooltip md-direction="top">View Trip</md-tooltip>
+                            <md-icon class=" ">remove_red_eye</md-icon>
+                        </md-button>
+                    </div>
+                </div>
+                 <div layout="row"  layout-align="start center" >
+                    <div flex class="">Doc Name</div>
+                   
+                    <div flex="30"><span class="default-text-color">Expiry Date : </span>12-12-2016</div>
+                    
+                    <div flex="10">
+                        <md-button class=" tablebtn md-icon-button" >
+                            <md-tooltip md-direction="top">View Trip</md-tooltip>
+                            <md-icon class=" ">remove_red_eye</md-icon>
+                        </md-button>
+                    </div>
+                </div>
+            </div>
+            <div layout="row" layout-align="start center" ng-click="data2.expand = !data2.expand" layout-padding class="dialoglistexpand">
+                <div class="md-subheader">More Details</div>
+                <div flex></div>
+                <div>
+                    <md-icon>{{data2.expand ? 'expand_less' : 'expand_more'}}</md-icon>
+                </div>
+            </div>
+            <div ng-show="data2.expand">
+                <div layout="row" layout-padding>
+                    <div class="default-text-color">Vehicle RegNo</div>
+                    <div flex></div>
+                    <div>45658746</div>
+                </div>
+                <div layout="row" layout-padding>
+                    <div class="default-text-color">Make</div>
+                    <div flex></div>
+                    <div>VehicleMake</div>
+                </div>
+                <div layout="row" layout-padding>
+                    <div class="default-text-color">Body Type</div>
+                    <div flex></div>
+                    <div>TypeOfBody</div>
+                </div>
+                <div layout="row" layout-padding>
+                    <div class="default-text-color">RegNo Expiry</div>
+                    <div flex></div>
+                    <div>12-12-2018</div>
+                </div>
+                <div layout="row" layout-padding>
+                    <div class="default-text-color">Model</div>
+                    <div flex></div>
+                    <div>VehicleModel</div>
+                </div>
+                <div layout="row" layout-padding>
+                    <div class="default-text-color">Pallet Spaces</div>
+                    <div flex></div>
+                    <div>PalletSpace</div>
+                </div>
+            </div>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <!--<md-button class="md-primary" ng-click="hide()" style="margin-right:20px;">
+            TRack
+        </md-button>-->
+        <md-button class="md-primary" ng-click="hide()" style="margin-right:20px;">
+            Cancel
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Drivers</title>
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/angular-material.min.css">
+    <link rel="stylesheet" href="fonts/material-icons.css">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <script src="js/libs/angular.min.js"></script>
+    <script src="js/libs/angular-animate.min.js"></script>
+    <script src="js/libs/angular-aria.min.js"></script>
+    <script src="js/libs/angular-messages.min.js"></script>
+    <script src="js/libs/angular-sanitize.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLIpr6B8yOl_TBZCBamlv7QfloPvBI7Ws"></script>
+    <script src="js/libs/angular-material.min.js"></script>
+    <script src="js/libs/md-data-table.min.js"></script>
+    <script src="js/libs/lf-ng-md-file-input.min.js"></script>
+    <script src='js/libs/moment.min.js'></script>
+    <script src='js/libs/picker.js'></script>
+    <script src="js/app.js"></script>
+    <script src="js/directives/directives.js"></script>
+
+
+    <script src="js/controllers/driverlistingCtrl.js"></script>
+
+</head>
+
+<body ng-app="Freight" ng-controller="DriverListCtrl" layout="row" ng-cloak>
+    <sidenav drivernotificationcount></sidenav>
+    <section layout="column" flex>
+        <md-toolbar class="md-primary" md-whiteframe=2>
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" ng-click="toggleSidenav('left')">
+                    <md-icon>menu</md-icon>
+                </md-button>
+                <h2><span>FREIGHT</span></h2>
+                <span flex></span>
+                <!--<md-button class="md-icon-button">
+                    <md-icon>more_vert</md-icon>
+                </md-button>-->
+            </div>
+        </md-toolbar>
+        <md-content class="mdcontent">
+            <div flex class="contentt">
+                <div layout="row" class="pagetitle" layout-align="start center">
+                    <img src="img/title_indicator.svg" alt="">
+                    <h2 class="md-display-1 ">DRIVERS</h2>
+                </div>
+                <md-divider></md-divider>
+                <div layout-gt-sm="row" class="tworem_mt" flex>
+                    <md-input-container class="md-block">
+                        <md-icon class="default-text-color ">search</md-icon>
+                        <label>Registration Number</label>
+                        <input>
+                    </md-input-container>
+                    <div flex> </div>
+                    <md-input-container class="md-block" flex-gt-sm="20" flex>
+                        <md-icon class="default-text-color">filter_list</md-icon>
+                        <label>Filter By Status</label>
+                        <md-select ng-model="filterType">
+                            <md-option><em>None</em></md-option>
+                            <md-option ng-repeat="filter in filtersType" ng-value="filter.value">
+                                {{filter.value}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div flex layout="column" class=" ">
+                    <md-card class="padingzero">
+                        <md-table-container>
+                            <table md-table ng-model="selected" md-progress="promise">
+                                <thead md-head md-order="query.order">
+                                    <tr md-row>
+                                        <th md-column>Sr No</th>
+                                        <th md-column>Name</th>
+                                        <th md-column>Reg No</th>
+                                        <th md-column class="text-center">Availability</th>
+                                        <th md-column class="text-center" md-order-by="status">Status</th>
+                                        <!--<th md-column class="text-center">Accept/Reject</th>-->
+                                        <th md-column class="text-center">Action</th>
+                                        <th md-column class="text-center">Active/Inactive</th>
+                                    </tr>
+                                </thead>
+                                <tbody md-body>
+                                    <tr md-row ng-repeat="datas in tabledata.data| orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                                        <td md-cell>{{datas.id}}</td>
+                                        <td md-cell>{{datas.name}}</td>
+                                        <td md-cell>{{datas.reg_no}}</td>
+                                        <td md-cell class="text-center">
+                                            <img ng-src="{{ datas.availabilty=='online'? 'img/online.png' : 'img/offline.png' }}">
+                                            <!--{{ datas.availabilty}}-->
+                                        </td>
+                                        <td md-cell class="text-center">
+                                            <div class="status" ng-class="[datas.status=='complete' ? 'status_complete': 'status_pending']">
+                                                {{datas.status}}
+                                            </div>
+                                        </td>
+                                        <!--<td md-cell class="text-center">
+                                            <md-button class=" tablebtn md-icon-button" ng-click="">
+                                                <md-tooltip md-direction="top">Accept</md-tooltip>
+                                                <md-icon class="sucessbtn">check</md-icon>
+                                            </md-button>
+                                            <md-button class=" tablebtn md-icon-button" ng-click="">
+                                                <md-tooltip md-direction="top">Reject</md-tooltip>
+                                                <md-icon class=" warnbtn">close</md-icon>
+                                            </md-button>
+                                        </td>-->
+                                        <td md-cell class="text-center">
+                                            <md-button class=" tablebtn md-icon-button" ng-href="driver_trip_details.html">
+                                                <md-tooltip md-direction="top">View Trips</md-tooltip>
+                                                <md-icon class=" sucessbtn">local_shipping</md-icon>
+                                            </md-button>
+                                            <md-button class=" tablebtn md-icon-button" ng-href="viewindividualdriver.html">
+                                                <md-tooltip md-direction="top">View Driver</md-tooltip>
+                                                <md-icon class=" sucessbtn">remove_red_eye</md-icon>
+                                            </md-button>
+                                            <!--<md-button class=" tablebtn md-icon-button" ng-click="active=!active">
+                                                <md-tooltip md-direction="top">{{active ? "Set Active" : "Set Unactive"}}</md-tooltip>
+                                                <md-icon ng-class="active ? 'warnbtn' : 'sucessbtn' ">{{active ? "block" : "check"}}</md-icon>
+                                            </md-button>-->
+                                        </td>
+                                        <td md-cell class="text-center">
+                                            <md-switch class="tableswitch md-primary" ng-model="data.cb1">
+                                            </md-switch>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </md-table-container>
+                        <md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{tabledata.count}}" md-on-paginate="" md-page-select></md-table-pagination>
+                    </md-card>
+                </div>
+            </div>
+        </md-content>
+    </section>
+</body>
+<script>
+</script>
+
+</html>

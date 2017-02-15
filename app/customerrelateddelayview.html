@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Related Delay View</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/angular-material.min.css">
+    <link rel="stylesheet" href="fonts/material-icons.css">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <script src="js/libs/angular.min.js"></script>
+    <script src="js/libs/angular-animate.min.js"></script>
+    <script src="js/libs/angular-aria.min.js"></script>
+    <script src="js/libs/angular-messages.min.js"></script>
+    <script src="js/libs/angular-sanitize.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLIpr6B8yOl_TBZCBamlv7QfloPvBI7Ws"></script>
+    <script src="js/libs/angular-material.min.js"></script>
+    <script src="js/libs/md-data-table.min.js"></script>
+    <script src="js/libs/lf-ng-md-file-input.min.js"></script>
+    <script src='js/libs/moment.min.js'></script>
+    <script src='js/libs/picker.js'></script>
+    <script src="js/app.js"></script>
+    <script src="js/directives/directives.js"></script>
+
+    <script src="js/controllers/customerRelatedDelayViewCtrl.js"></script>
+    <!--
+    <script src="js/controllers/driverlistingCtrl.js"></script>
+    <script src="js/controllers/drivertripdetailsCtrl.js"></script>
+    <script src="js/controllers/companylistingCtrl.js"></script>
+    <script src="js/controllers/viewallvehiclesCtrl.js"></script>
+    <script src="js/controllers/viewalldriversCtrl.js"></script>
+    <script src="js/controllers/companydetailCtrl.js"></script>
+    <script src="js/controllers/currentBookingCtrl.js"></script>
+    <script src="js/controllers/bookinghistoryCtrl.js"></script>
+    <script src="js/controllers/cancelledbookingCtrl.js"></script>
+    <script src="js/controllers/servicesCtrl.js"></script>
+    <script src="js/controllers/vehiclemasterCtrl.js"></script>
+    <script src="js/controllers/vehicleserviceCtrl.js"></script>
+    <script src="js/controllers/viewvehicleCtrl.js"></script>
+    <script src="js/controllers/documentmasterCtrl.js"></script>
+    <script src="js/controllers/userdetailsCtrl.js"></script>-->
+    <!--<script src="js/controllers/userlistingCtrl.js"></script>
+    <script src="js/controllers/customerRelatedDelayCtrl.js"></script>
+    <script src="js/controllers/customerRelatedDelayViewCtrl.js"></script>
+    <script src="js/controllers/settingCtrl.js"></script>
+    <script src="js/controllers/subadminlistingCtrl.js"></script>
+    <script src="js/controllers/addeditsubadminCtrl.js"></script>
+    <script src="js/controllers/invoiceCustomerCtrl.js"></script>
+    <script src="js/controllers/invoiceDriverCtrl.js"></script>
+    <script src="js/controllers/invoiceCompanyCtrl.js"></script>
+    <script src="js/controllers/drivertrackCtrl.js"></script>
+    <script src="js/controllers/vehicledetailsCtrl.js"></script>
+    <script src="js/controllers/viewindividualdriverCtrl.js"></script>
+    <script src="js/controllers/companydriverdetailsCtrl.js"></script>-->
+</head>
+
+<body ng-app="Freight" ng-controller="CustomerRelatedDelayViewCtrl" layout="row" ng-cloak>
+    <sidenav drivernotificationcount></sidenav>
+    <section layout="column" flex>
+        <md-toolbar class="md-primary" md-whiteframe=2>
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" ng-click="toggleSidenav('left')">
+                    <md-icon>menu</md-icon>
+                </md-button>
+                <h2><span>FREIGHT</span></h2>
+                <span flex></span>
+                <!--<md-button class="md-icon-button">
+                    <md-icon>more_vert</md-icon>
+                </md-button>-->
+            </div>
+        </md-toolbar>
+        <md-content class="mdcontent">
+            <div class="contentt">
+                <div layout="row" class="pagetitle" layout-align="start center">
+                    <img src="img/title_indicator.svg" alt="">
+                    <h2 class="md-display-1 ">CUSTOMER RELATED DELAY VIEW</h2>
+                </div>
+                <md-divider></md-divider>
+                <div layout="row" class="breadcrumbs" layout-align="start center" flex>
+                    <a class="hovercol" href="index.html">
+                        <md-icon class="font20 ">home</md-icon><span>Home</span>
+                    </a>
+                    <a class="hovercol" href="customerrelateddelay.html">
+                        <md-icon class="">keyboard_arrow_right</md-icon><span>Customer Related Delay</span>
+                    </a>
+                    <a class="hovercol" href="#">
+                        <md-icon class="">keyboard_arrow_right</md-icon><span>Customer Related Delay View</span>
+                    </a>
+                </div>
+                <!--<div layout="row" class="breadcrumbs" layout-align="start center" flex>
+                    <a class="hovercol" href="index.php">
+                        <md-icon class="font20 ">home</md-icon><span>Home</span>
+                    </a>
+                    <a class="hovercol" href="customerrelateddelay.php"></a>
+                    <md-icon class="">keyboard_arrow_right</md-icon><span>Customer Related Delay</span>
+                    </a>
+                    <a class="hovercol" href="#">
+                        <md-icon class="">keyboard_arrow_right</md-icon><span>Customer Related Delay View</span>
+                    </a>
+                </div>-->
+                <md-divider class="onerem_mt"></md-divider>
+                <div flex layout="row" class="onerem_mt" layout-align="start center">
+                    <h1 class="md-title  default-text-color">Details</h1>
+                    <div flex>
+                    </div>
+                    <!--<md-switch class="md-primary" ng-false-value="'Invoice Generation Stopped'" ng-true-value="'Invoice Generation Started'"
+                        ng-model="data.invoice">
+                        {{data.invoice}}
+                    </md-switch>-->
+                    <md-switch class="md-primary" ng-model="data.invoice">
+                        Generate Invoice
+                    </md-switch>
+                </div>
+                <div>
+                    <div layout-gt-sm="row" flex class="callout">
+                        <div flex>
+                            <div layout="row" layout-padding>
+                                <div class="default-text-color">Booking ID</div>
+                                <div flex></div>
+                                <div>45658746</div>
+                            </div>
+                        </div>
+                        <div flex=10></div>
+                        <div flex>
+                            <div layout="row" layout-padding>
+                                <div class="default-text-color">Date</div>
+                                <div flex></div>
+                                <div>12-12-2018</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div layout-gt-sm="row" flex class="callout">
+                        <div flex>
+                            <div layout="row" layout-padding>
+                                <div class="default-text-color">Name</div>
+                                <div flex></div>
+                                <div>John</div>
+                            </div>
+                            <div layout="row" layout-padding>
+                                <div class="default-text-color">Contact</div>
+                                <div flex></div>
+                                <div>123456</div>
+                            </div>
+                        </div>
+                        <div flex=10></div>
+                        <div flex>
+                            <div layout="row" layout-padding>
+                                <div class="default-text-color">Email</div>
+                                <div flex></div>
+                                <div>ggggg@g.com</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div layout-gt-sm="row" flex class="callout">
+                        <div flex>
+                            <div layout="row" layout-padding>
+                                <div class="default-text-color">From</div>
+                                <div flex></div>
+                                <div>Panjim</div>
+                            </div>
+                        </div>
+                        <div flex=10></div>
+                        <div flex>
+                            <div layout="row" layout-padding>
+                                <div class="default-text-color">To</div>
+                                <div flex></div>
+                                <div>Margao</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div layout-gt-sm="row" flex class="callout">
+                        <div flex>
+                            <div layout="row" layout-padding>
+                                <div class="default-text-color">Driver Name</div>
+                                <div flex></div>
+                                <div>John</div>
+                            </div>
+                        </div>
+                        <div flex=10></div>
+                        <div flex>
+                            <div layout="row" layout-padding>
+                                <div class="default-text-color">Driver Contact</div>
+                                <div flex></div>
+                                <div>123456</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div layout-gt-sm="row" flex class="callout">
+                        <div flex>
+                            <div layout="row" layout-padding>
+                                <div class="default-text-color">Delay At</div>
+                                <div flex></div>
+                                <div>Panjim</div>
+                            </div>
+                            <div layout="row" layout-padding>
+                                <div class="default-text-color">Delay Hours</div>
+                                <div flex></div>
+                                <div>2</div>
+                            </div>
+                        </div>
+                        <div flex=10></div>
+                        <div flex>
+                            <div layout="row" layout-padding>
+                                <div class="default-text-color">Rate</div>
+                                <div flex></div>
+                                <div>10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div layout-gt-sm="row" flex class="callout">
+                        <div flex>
+                            <div layout="row" layout-padding layout-align="start center">
+                                <div class="default-text-color">Amount to be Added</div>
+                                <div flex></div>
+                                <md-input-container class="md-block zerobotmargin" flex-gt-sm="20" flex>
+                                    <label> Amount</label>
+                                    <input>
+                                </md-input-container>
+                            </div>
+                        </div>
+                        <div flex=10></div>
+                        <div flex>
+                            <div layout="row" layout-padding layout-align="start center">
+                                <div class="default-text-color">Amount to be Deducted</div>
+                                <div flex></div>
+                                <md-input-container class="md-block zerobotmargin" flex-gt-sm="20" flex>
+                                    <label>Amount</label>
+                                    <input>
+                                </md-input-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div flex layout="row" class="onerem_mt">
+                    <div flex></div>
+                    <div>
+                        <md-button class="md-primary md-raised">process payment</md-button>
+                    </div>
+                    <div>
+                        <md-button class="md-primary md-raised" ng-click="addNoteDialog($event)">ADD NOTE</md-button>
+                    </div>
+                    <div>
+                        <md-button class="md-primary md-raised">SAVE</md-button>
+                    </div>
+                </div>
+                <div class="tworem_mt ">
+                    <h1 class="md-title tworem_mt default-text-color">Notes</h1>
+                    <div class="pading_litle">
+                        <div md-whiteframe="1" class="logs relativepos">
+                            <div class="hover-delete">
+                                <md-button class="md-icon-button " ng-click="">
+                                    <md-icon class="warnbtn">delete</md-icon>
+                                </md-button>
+                            </div>
+                            <div flex layout="row">
+                                <div class="name">Admin Name</div>
+                                <div flex> </div>
+                                <div class="date"> 22 Dec 2016 @ 12:30 pm</div>
+                            </div>
+                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem hic reiciendis quis voluptatem a eius voluptate, iusto et! Odit iusto ipsum laborum sint enim iure incidunt expedita, doloribus architecto id!
+                            </div>
+                        </div>
+                        <div md-whiteframe="1" class="logs relativepos">
+                            <div class="hover-delete">
+                                <md-button class="md-icon-button " ng-click="">
+                                    <md-icon class="warnbtn">delete</md-icon>
+                                </md-button>
+                            </div>
+                            <div flex layout="row">
+                                <div class="name">Admin Name</div>
+                                <div flex> </div>
+                                <div class="date"> 22 Dec 2016 @ 12:30 pm</div>
+                            </div>
+                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem hic reiciendis quis voluptatem a eius voluptate, iusto et! Odit iusto ipsum laborum sint enim iure incidunt expedita, doloribus architecto id!
+                            </div>
+                        </div>
+                        <div md-whiteframe="1" class="logs relativepos">
+                            <div class="hover-delete">
+                                <md-button class="md-icon-button " ng-click="">
+                                    <md-icon class="warnbtn">delete</md-icon>
+                                </md-button>
+                            </div>
+                            <div flex layout="row">
+                                <div class="name">Admin Name</div>
+                                <div flex> </div>
+                                <div class="date"> 22 Dec 2016 @ 12:30 pm</div>
+                            </div>
+                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem hic reiciendis quis voluptatem a eius voluptate, iusto et! Odit iusto ipsum laborum sint enim iure incidunt expedita, doloribus architecto id!
+                            </div>
+                        </div>
+                        <div md-whiteframe="1" class="logs relativepos">
+                            <div class="hover-delete">
+                                <md-button class="md-icon-button " ng-click="">
+                                    <md-icon class="warnbtn">delete</md-icon>
+                                </md-button>
+                            </div>
+                            <div flex layout="row">
+                                <div class="name">Admin Name</div>
+                                <div flex> </div>
+                                <div class="date"> 22 Dec 2016 @ 12:30 pm</div>
+                            </div>
+                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem hic reiciendis quis voluptatem a eius voluptate, iusto et! Odit iusto ipsum laborum sint enim iure incidunt expedita, doloribus architecto id!
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </md-content>
+    </section>
+</body>
+<script>
+</script>
+
+</html>

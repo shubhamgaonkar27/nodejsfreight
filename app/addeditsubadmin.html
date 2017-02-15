@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add SubAdmin</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/angular-material.min.css">
+    <link rel="stylesheet" href="fonts/material-icons.css">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <script src="js/libs/angular.min.js"></script>
+    <script src="js/libs/angular-animate.min.js"></script>
+    <script src="js/libs/angular-aria.min.js"></script>
+    <script src="js/libs/angular-messages.min.js"></script>
+    <script src="js/libs/angular-sanitize.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLIpr6B8yOl_TBZCBamlv7QfloPvBI7Ws"></script>
+    <script src="js/libs/angular-material.min.js"></script>
+    <script src="js/libs/md-data-table.min.js"></script>
+    <script src="js/libs/lf-ng-md-file-input.min.js"></script>
+    <script src='js/libs/moment.min.js'></script>
+    <script src='js/libs/picker.js'></script>
+    <script src="js/app.js"></script>
+    <script src="js/directives/directives.js"></script>
+
+    <script src="js/controllers/addeditsubadminCtrl.js"></script>
+    <!--
+    <script src="js/controllers/driverlistingCtrl.js"></script>
+    <script src="js/controllers/drivertripdetailsCtrl.js"></script>
+    <script src="js/controllers/companylistingCtrl.js"></script>
+    <script src="js/controllers/viewallvehiclesCtrl.js"></script>
+    <script src="js/controllers/viewalldriversCtrl.js"></script>
+    <script src="js/controllers/companydetailCtrl.js"></script>
+    <script src="js/controllers/currentBookingCtrl.js"></script>
+    <script src="js/controllers/bookinghistoryCtrl.js"></script>
+    <script src="js/controllers/cancelledbookingCtrl.js"></script>
+    <script src="js/controllers/servicesCtrl.js"></script>
+    <script src="js/controllers/vehiclemasterCtrl.js"></script>
+    <script src="js/controllers/vehicleserviceCtrl.js"></script>
+    <script src="js/controllers/viewvehicleCtrl.js"></script>
+    <script src="js/controllers/documentmasterCtrl.js"></script>
+    <script src="js/controllers/userdetailsCtrl.js"></script>-->
+    <!--<script src="js/controllers/userlistingCtrl.js"></script>
+    <script src="js/controllers/customerRelatedDelayCtrl.js"></script>
+    <script src="js/controllers/customerRelatedDelayViewCtrl.js"></script>
+    <script src="js/controllers/settingCtrl.js"></script>
+    <script src="js/controllers/subadminlistingCtrl.js"></script>
+    <script src="js/controllers/addeditsubadminCtrl.js"></script>
+    <script src="js/controllers/invoiceCustomerCtrl.js"></script>
+    <script src="js/controllers/invoiceDriverCtrl.js"></script>
+    <script src="js/controllers/invoiceCompanyCtrl.js"></script>
+    <script src="js/controllers/drivertrackCtrl.js"></script>
+    <script src="js/controllers/vehicledetailsCtrl.js"></script>
+    <script src="js/controllers/viewindividualdriverCtrl.js"></script>
+    <script src="js/controllers/companydriverdetailsCtrl.js"></script>-->
+</head>
+
+<body ng-app="Freight" ng-controller="AddEditSubAdminCtrl" layout="row" ng-cloak>
+    <!--<div ng-include="'template/sidenav.php'">   </div>-->
+    <sidenav drivernotificationcount></sidenav>
+    <section layout="column" flex>
+        <md-toolbar class="md-primary" md-whiteframe=2>
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" ng-click="toggleSidenav('left')">
+                    <md-icon>menu</md-icon>
+                </md-button>
+                <h2><span>FREIGHT</span></h2>
+                <span flex></span>
+                <!--<md-button class="md-icon-button">
+                    <md-icon>more_vert</md-icon>
+                </md-button>-->
+            </div>
+        </md-toolbar>
+        <md-content class="mdcontent tworem_mb">
+            <div flex-gt-md="60" flex-offset-gt-md="20" flex>
+                <div class="contentt ">
+                    <div layout="row" class="pagetitle" layout-align="start center">
+                        <img src="img/title_indicator.svg" alt="">
+                        <!--change below name according to add or edit-->
+                        <h2 class="md-display-1 ">ADD SUB-ADMIN</h2>
+                    </div>
+                    <md-divider></md-divider>
+                    <div layout="row" class="breadcrumbs" layout-align="start center" flex>
+                        <a class="hovercol" href="index.html">
+                            <md-icon class="font20 ">home</md-icon><span>Home</span>
+                        </a>
+                        <a class="hovercol" href="subadminlisting.html">
+                            <md-icon class="">keyboard_arrow_right</md-icon><span>Sub Admin</span>
+                        </a>
+                        <a class="hovercol" href="#">
+                            <md-icon class="">keyboard_arrow_right</md-icon><span>Add Sub Admin</span>
+                        </a>
+                    </div>
+                    <div class="tworem_mt">
+                        <h1 class="md-title tworem_mt default-text-color">Personal Details</h1>
+                        <md-input-container class="md-block">
+                            <label>Name</label>
+                            <input>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Username</label>
+                            <input>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Email</label>
+                            <input>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Contact</label>
+                            <input>
+                        </md-input-container>
+                        <h1 class="md-title tworem_mt default-text-color">Access Rights</h1>
+                        <md-card class="padingzero tworem_mb">
+                            <md-table-container>
+                                <table md-table ng-model="selected" md-progress="promise">
+                                    <thead md-head md-order="query.order">
+                                        <tr md-row>
+                                            <th md-column>Sr No</th>
+                                            <th md-column>Modules</th>
+                                            <th md-column class="text-center">Read</th>
+                                            <th md-column class="text-center">Write</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody md-body>
+                                        <tr md-row ng-repeat="datas in tabledata.data| orderBy: query.order ">
+                                            <td md-cell>{{datas.id}}</td>
+                                            <td md-cell>{{datas.modulename}}</td>
+                                            <td md-cell class="text-center">
+                                                <md-checkbox class="md-primary" ng-model="datas.read"></md-checkbox>
+                                            </td>
+                                            <td md-cell class="text-center">
+                                                <md-checkbox class="md-primary" ng-model="datas.write"></md-checkbox>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </md-table-container>
+                        </md-card>
+                        <md-divider></md-divider>
+                        <div layout="row" layout-align="start center" class="onerem_mt">
+                            <!--remove delete button based on edit or add-->
+                            <md-button class=" md-primary md-raised ">Delete</md-button>
+                            <div flex></div>
+                            <md-button class=" md-primary md-raised ">SUBMIT</md-button>
+
+                            <md-button class="md-primary md-raised " ng-click="">CANCEL</md-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </md-content>
+    </section>
+</body>
+<script>
+</script>
+
+</html>

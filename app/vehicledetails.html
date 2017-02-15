@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VehicleName Details</title>
+    <?php include 'template/all_includes.php';?>
+</head>
+
+<body ng-app="Freight" ng-controller="VehicleDetailsCtrl" layout="row" ng-cloak>
+    <!--<div ng-include="'template/sidenav.php'">   </div>-->
+    <sidenav drivernotificationcount></sidenav>
+    <section layout="column" flex>
+        <md-toolbar class="md-primary" md-whiteframe=2>
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" ng-click="toggleSidenav('left')">
+                    <md-icon>menu</md-icon>
+                </md-button>
+                <h2><span>FREIGHT</span></h2>
+                <span flex></span>
+                <!--<md-button class="md-icon-button">
+                    <md-icon>more_vert</md-icon>
+                </md-button>-->
+            </div>
+            
+        </md-toolbar>
+        <md-content class="mdcontent tworem_mb">
+            <div class="contentt " flex>
+                <div layout="row" class="pagetitle" layout-align="start center">
+                    <img src="img/title_indicator.svg" alt="">
+                    <!--change below name according to add or edit-->
+                    <h2 class="md-display-1 ">VEHICLE DETAIL</h2>
+                </div>
+                <md-divider></md-divider>
+                <div layout="row" class="breadcrumbs" layout-align="start center" flex>
+                    <a class="hovercol" href="index.php">
+                        <md-icon class="font20 ">home</md-icon><span>Home</span>
+                    </a>
+                    <a class="hovercol" href="company_listing.php">
+                        <md-icon class="">keyboard_arrow_right</md-icon><span>Companies</span>
+                    </a>
+                    <a class="hovercol" href="viewallvehicles.php">
+                        <md-icon class="">keyboard_arrow_right</md-icon><span>Company Vehicles</span>
+                    </a>
+                    <a class="hovercol" href="#">
+                        <md-icon class="">keyboard_arrow_right</md-icon><span>Vehicle Details</span>
+                    </a>
+                </div>
+                <div class="tworem_mt">
+                    <div layout="row" layout-align="start center" class=" tworem_mt">
+                        <h1 class="md-title default-text-color">Details </h1>
+                        <div flex></div>
+                        <md-switch ng-model="data.cb1" class="md-primary">
+                            REJECT
+                        </md-switch>
+                    </div>
+                    <div>
+                        <div layout-gt-sm="row" flex class="callout">
+                            <div flex>
+                                <div layout="row" layout-padding>
+                                    <div class="default-text-color">Company Name</div>
+                                    <div flex></div>
+                                    <div>ABCC</div>
+                                </div>
+                                <div layout="row" layout-padding>
+                                    <div class="default-text-color">Vehicle Reg No</div>
+                                    <div flex></div>
+                                    <div>123456</div>
+                                </div>
+                                <div layout="row" layout-padding>
+                                    <div class="default-text-color">Make</div>
+                                    <div flex></div>
+                                    <div>make</div>
+                                </div>
+                            </div>
+                            <div flex=5></div>
+                            <div flex>
+                                <div layout="row" layout-padding>
+                                    <div class="default-text-color">Body Type</div>
+                                    <div flex></div>
+                                    <div>type</div>
+                                </div>
+                                <div layout="row" layout-padding>
+                                    <div class="default-text-color">Model</div>
+                                    <div flex></div>
+                                    <div>VehicleModel</div>
+                                </div>
+                                <div layout="row" layout-padding>
+                                    <div class="default-text-color">Pallet Spaces</div>
+                                    <div flex></div>
+                                    <div>PalletSpace</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div  class="callout text-center">
+                            <img class=" margin-center vehicle-detail-image" src="img/truck.jpg">
+                        </div>
+                    </div>
+                    <h1 class="md-title tworem_mt default-text-color">Document Details</h1>
+                    <div class="callout">
+                        <div layout="row" flex layout-align="start center" ng-repeat="docs in userDocuments">
+                            <div flex class="">{{docs.name}}</div>
+                            <div flex-gt-md="20" flex>
+                                <span class="default-text-color">Expiry Date : </span>12-12-2016
+                            </div>
+                            <div flex="5">
+                                <md-button class=" tablebtn md-icon-button" ng-click="viewAttachment($event,$index)">
+                                    <md-tooltip md-direction="top">View Document</md-tooltip>
+                                    <md-icon class=" ">remove_red_eye</md-icon>
+                                </md-button>
+                            </div>
+                            <div flex="10" ng-switch="docs.status">
+                                <div ng-switch-when="PENDING">
+                                    <div class="status status_pending text-center">
+                                        {{docs.status}}
+                                    </div>
+                                </div>
+                                <div ng-switch-when="ACCEPTED">
+                                    <div class="status status_accepted text-center">
+                                        {{docs.status}}
+                                    </div>
+                                </div>
+                                <div ng-switch-when="REJECTED">
+                                    <div class="status status_rejected text-center">
+                                        {{docs.status}}
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div flex="10" class="status status_complete text-center">
+
+                            {{docs.status}}
+                               
+                            </div>-->
+                        </div>
+                    </div>
+                    <h1 class="md-title tworem_mt default-text-color">Vehicle Trip Details</h1>
+                    <md-card class="padingzero tworem_mb">
+                        <md-table-container>
+                            <table md-table ng-model="selected" md-progress="promise">
+                                <thead md-head md-order="query.order">
+                                    <tr md-row>
+                                        <th md-column>Sr No</th>
+                                        <th md-column>Customer</th>
+                                        <th md-column>Booking ID</th>
+                                        <th md-column>Driver Name</th>
+                                        <th md-column>From-To</th>
+                                        <th md-column>Consignment</th>
+                                        <th md-column>Multiple Stop</br>Consignment</th>
+                                        <th md-column class="text-center">Status</th>
+                                         <th md-column class="text-center">Reason</th>
+                                        <th md-column class="text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody md-body>
+                                    <tr md-row ng-repeat="datas in tabledata.data| orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                                        <td md-cell>{{datas.id}}</td>
+                                        <td md-cell>{{datas.customername}}</td>
+                                        <td md-cell>{{datas.bookingId}}</td>
+                                        <td md-cell>{{datas.driverName}}</td>
+                                        <td md-cell>{{datas.fromTo}}</td>
+                                        <td md-cell>{{datas.consignment}}</td>
+                                        <td md-cell>{{datas.multipleStopConsignment}}</td>
+                                        <td md-cell class="text-center">
+                                            <div ng-switch="datas.status">
+                                                <div ng-switch-when="Accepted">
+                                                    <div class="status status_accepted">ACCEPTED</div>
+                                                </div>
+                                                <div ng-switch-when="Rejected">
+                                                    <div class="status status_rejected">REJECTED</div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </td>
+                        
+                                         <td md-cell class="text-center">
+                                            <md-button class=" tablebtn md-icon-button" ng-click="" ng-if="datas.status==='Accepted'?false:true">
+                                                <md-tooltip md-direction="top">Reject Reason</md-tooltip>
+                                                <md-icon class=" ">info_outline</md-icon>
+                                            </md-button>
+                                        </td>
+                                        <td md-cell class="text-center">
+                                            <md-button class=" tablebtn md-icon-button" ng-click="">
+                                                <md-tooltip md-direction="top">View Booking</md-tooltip>
+                                                <md-icon class=" sucessbtn">remove_red_eye</md-icon>
+                                            </md-button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </md-table-container>
+                        <md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{tabledata.count}}"
+                            md-on-paginate="" md-page-select></md-table-pagination>
+                    </md-card>
+                    <md-divider></md-divider>
+                    <div layout="row" layout-align="start center" class="onerem_mt">
+                        <!--remove delete button based on edit or add-->
+                        <!--<md-button class=" md-primary md-raised ">Delete</md-button>-->
+                        <div flex></div>
+                        <md-button class=" sucessbtn ">update and save</md-button>
+                        <md-button class="warnbtn " ng-click="">REJECT</md-button>
+                    </div>
+                </div>
+            </div>
+        </md-content>
+    </section>
+</body>
+<script>
+</script>
+
+</html>

@@ -1,0 +1,27 @@
+<!--from company detail on click of view attachment-->
+<md-dialog flex-gt-xs="80"  flex-xs="100">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>View Attachment </h2>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div  class="text-center ">
+            <img src="http://placehold.it/500x650">
+          
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button class="sucessbtn" ng-click="hide('Accepted')" style="margin-right:20px;">
+            Accept
+        </md-button>
+        <md-button class="md-primary" ng-click="hide('Rejected')" style="margin-right:20px;">
+            Reject
+        </md-button>
+        <md-button class="md-primary" ng-click="hide()" style="margin-right:20px;">
+            Close
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

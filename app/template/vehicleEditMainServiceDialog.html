@@ -1,0 +1,31 @@
+<!--from view vehicle-->
+<md-dialog flex-gt-xs="70" flex-gt-sm="50" flex-xs="100">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Add Main Services</h2>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="onerem_mt pading_litle">
+            <fieldset class="standard">
+                <legend> Main Services</legend>
+                <div layout="row" layout-wrap flex class="onerem_mt">
+                    <md-checkbox class="md-primary" ng-model="data.cb1" ng-repeat="service in services">{{service.service_name}}</md-checkbox>
+                </div>
+            </fieldset>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+         <md-button class="md-primary" ng-href="vehicleservices.php" style="margin-right:20px;">
+         Add main services
+        </md-button>
+        <!--<md-button class="md-primary" ng-click="hide()" style="margin-right:20px;">
+           Save
+        </md-button>-->
+        <md-button class="md-primary" ng-click="hide()" style="margin-right:20px;">
+            Cancel
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

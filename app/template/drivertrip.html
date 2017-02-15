@@ -1,0 +1,96 @@
+<!--from dirver trip deatils on click of view-->
+<md-dialog flex-gt-xs="70" flex-gt-sm="50" flex-xs="100">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>Driver Trip </h2>
+            <span flex></span>
+            <div>
+                <md-button class="" ng-href="driverTracking.php">
+                    <md-icon>place</md-icon>
+                    TRack
+                </md-button>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="">
+            <div layout="row" layout-padding layout-align="start center">
+                <div class="md-title fontweight300">John Smith</div>
+                <div flex></div>
+                <div>99845658746</div>
+                
+            </div>
+            <md-divider></md-divider>
+            <div>
+                <div layout="row" layout-padding>
+                    <div class="default-text-color">From -To</div>
+                    <div flex></div>
+                    <div>Panajim-Margao</div>
+                </div>
+                <div layout="row" layout-padding>
+                    <div class="default-text-color">Consignment Details</div>
+                    <div flex></div>
+                    <div>VehicleMake</div>
+                </div>
+                <div layout="row" layout-padding>
+                    <div class="default-text-color">PickUp Date</div>
+                    <div flex></div>
+                    <div>12-12-2018</div>
+                </div>
+                <div layout="row" layout-padding>
+                    <div class="default-text-color">KMs Travelled</div>
+                    <div flex></div>
+                    <div>200</div>
+                </div>
+            </div>
+            <div layout="row" layout-align="start center" ng-click="data2.expand = !data2.expand" layout-padding class="dialoglistexpand">
+                <div class="md-subheader">More Details</div>
+                <div flex></div>
+                <div>
+                    <md-icon>{{data2.expand ? 'expand_less' : 'expand_more'}}</md-icon>
+                </div>
+            </div>
+            <div ng-show="data2.expand">
+                <div layout="row" layout-padding>
+                    <div class="default-text-color">Vehicle RegNo</div>
+                    <div flex></div>
+                    <div>45658746</div>
+                </div>
+                <div layout="row" layout-padding>
+                    <div class="default-text-color">Make</div>
+                    <div flex></div>
+                    <div>VehicleMake</div>
+                </div>
+                <div layout="row" layout-padding>
+                    <div class="default-text-color">Body Type</div>
+                    <div flex></div>
+                    <div>TypeOfBody</div>
+                </div>
+                <div layout="row" layout-padding>
+                    <div class="default-text-color">RegNo Expiry</div>
+                    <div flex></div>
+                    <div>12-12-2018</div>
+                </div>
+                <div layout="row" layout-padding>
+                    <div class="default-text-color">Model</div>
+                    <div flex></div>
+                    <div>VehicleModel</div>
+                </div>
+                <div layout="row" layout-padding>
+                    <div class="default-text-color">Pallet Spaces</div>
+                    <div flex></div>
+                    <div>PalletSpace</div>
+                </div>
+            </div>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <!--<md-button class="md-primary" ng-click="hide()" style="margin-right:20px;">
+            TRack
+        </md-button>-->
+        <md-button class="md-primary" ng-click="hide()" style="margin-right:20px;">
+            Cancel
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

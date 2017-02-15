@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Current Bookings</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/angular-material.min.css">
+    <link rel="stylesheet" href="fonts/material-icons.css">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <script src="js/libs/angular.min.js"></script>
+    <script src="js/libs/angular-animate.min.js"></script>
+    <script src="js/libs/angular-aria.min.js"></script>
+    <script src="js/libs/angular-messages.min.js"></script>
+    <script src="js/libs/angular-sanitize.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLIpr6B8yOl_TBZCBamlv7QfloPvBI7Ws"></script>
+    <script src="js/libs/angular-material.min.js"></script>
+    <script src="js/libs/md-data-table.min.js"></script>
+    <script src="js/libs/lf-ng-md-file-input.min.js"></script>
+    <script src='js/libs/moment.min.js'></script>
+    <script src='js/libs/picker.js'></script>
+    <script src="js/app.js"></script>
+    <script src="js/directives/directives.js"></script>
+
+    <script src="js/controllers/currentBookingCtrl.js"></script>
+    <!--
+    <script src="js/controllers/driverlistingCtrl.js"></script>
+    <script src="js/controllers/drivertripdetailsCtrl.js"></script>
+    <script src="js/controllers/companylistingCtrl.js"></script>
+    <script src="js/controllers/viewallvehiclesCtrl.js"></script>
+    <script src="js/controllers/viewalldriversCtrl.js"></script>
+    <script src="js/controllers/companydetailCtrl.js"></script>
+    <script src="js/controllers/homepageCtrl.js"></script>
+    <script src="js/controllers/bookinghistoryCtrl.js"></script>
+    <script src="js/controllers/cancelledbookingCtrl.js"></script>
+    <script src="js/controllers/servicesCtrl.js"></script>
+    <script src="js/controllers/vehiclemasterCtrl.js"></script>
+    <script src="js/controllers/vehicleserviceCtrl.js"></script>
+    <script src="js/controllers/viewvehicleCtrl.js"></script>
+    <script src="js/controllers/documentmasterCtrl.js"></script>
+    <script src="js/controllers/userdetailsCtrl.js"></script>-->
+    <!--<script src="js/controllers/userlistingCtrl.js"></script>
+    <script src="js/controllers/customerRelatedDelayCtrl.js"></script>
+    <script src="js/controllers/customerRelatedDelayViewCtrl.js"></script>
+    <script src="js/controllers/settingCtrl.js"></script>
+    <script src="js/controllers/subadminlistingCtrl.js"></script>
+    <script src="js/controllers/addeditsubadminCtrl.js"></script>
+    <script src="js/controllers/invoiceCustomerCtrl.js"></script>
+    <script src="js/controllers/invoiceDriverCtrl.js"></script>
+    <script src="js/controllers/invoiceCompanyCtrl.js"></script>
+    <script src="js/controllers/drivertrackCtrl.js"></script>
+    <script src="js/controllers/vehicledetailsCtrl.js"></script>
+    <script src="js/controllers/viewindividualdriverCtrl.js"></script>
+    <script src="js/controllers/companydriverdetailsCtrl.js"></script>-->
+</head>
+
+<body ng-app="Freight" ng-controller="CurrentBookingListCtrl" layout="row" ng-cloak>
+    <sidenav drivernotificationcount></sidenav>
+    <section layout="column" flex>
+        <md-toolbar class="md-primary" md-whiteframe=2>
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" ng-click="toggleSidenav('left')">
+                    <md-icon>menu</md-icon>
+                </md-button>
+                <h2>
+                    <div>FREIGHT</span>
+                </h2>
+                <span flex></span>
+                </div>
+        </md-toolbar>
+        <md-content class="mdcontent">
+            <!--<div class="breadcrumbs" >
+                Home / Current Bookings
+        </div>-->
+            <div flex class="contentt">
+                <div layout="row" class="pagetitle" layout-align="start center">
+                    <img src="img/title_indicator.svg" alt="">
+                    <h2 class="md-display-1 ">CURRENT BOOKINGS</h2>
+                </div>
+                <md-divider></md-divider>
+                <div layout="row" class="breadcrumbs" layout-align="start center" flex>
+                    <a class="hovercol" href="index.html">
+                        <md-icon class="font20 ">home</md-icon><span>Home</span>
+                    </a>
+                    <!--<a class="hovercol" href="index.php">
+                        <md-icon class="">keyboard_arrow_right</md-icon><span>Home</span>
+                    </a>-->
+                    <a class="hovercol" href="#">
+                        <md-icon class="">keyboard_arrow_right</md-icon><span>Current Booking</span>
+                    </a>
+                </div>
+                <div layout-gt-sm="row" class="onerem_mt" flex>
+                    <md-input-container class="md-block">
+                        <md-icon class="default-text-color ">search</md-icon>
+                        <label>Driver Name</label>
+                        <input>
+                    </md-input-container>
+                    <div flex> </div>
+                    <md-input-container class="md-block">
+                        <md-icon class="default-text-color ">search</md-icon>
+                        <label>Booking ID</label>
+                        <input>
+                    </md-input-container>
+                    <div flex> </div>
+                    <md-input-container class="md-block" flex-gt-sm="20" flex>
+                        <md-icon class="default-text-color">filter_list</md-icon>
+                        <label>Filter By Status</label>
+                        <md-select ng-model="filterType">
+                            <md-option><em>None</em></md-option>
+                            <md-option ng-repeat="filter in filtersType" ng-value="filter.value">
+                                {{filter.value}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div flex layout="column" class=" ">
+                    <md-card class="padingzero">
+                        <md-table-container>
+                            <table md-table ng-model="selected" md-progress="promise">
+                                <thead md-head md-order="query.order">
+                                    <tr md-row>
+                                        <th md-column>Sr No</th>
+                                        <th md-column>Booking ID</th>
+                                        <th md-column>Customer</th>
+                                        <th md-column>Reg No</th>
+                                        <th md-column>Driver</th>
+                                        <th md-column>From-To</th>
+                                        <th md-column md-order-by="status">Status</th>
+                                        <th md-column>Services</th>
+                                        <th md-column class="text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody md-body>
+                                    <tr md-row ng-repeat="datas in tabledata.data| orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                                        <td md-cell>{{datas.id}}</td>
+                                        <td md-cell>{{datas.bookingID}}</td>
+                                        <td md-cell>{{datas.driver_name}}</td>
+                                        <td md-cell>{{datas.regno}}</td>
+                                        <td md-cell>{{datas.driver_name}}</td>
+                                        <td md-cell>{{datas.from_to}}</td>
+                                        <td md-cell>{{datas.status}}</td>
+                                        <td md-cell>{{datas.service}}</td>
+                                        <td md-cell class="text-center">
+                                            <md-button class=" tablebtn md-icon-button" ng-href="driverTracking.html">
+                                                <md-tooltip md-direction="top">Track</md-tooltip>
+                                                <md-icon class=" sucessbtn">local_shipping</md-icon>
+                                            </md-button>
+                                            <md-button class=" tablebtn md-icon-button" ng-click="bookingViewDialog($event)">
+                                                <md-tooltip md-direction="top">View Booking</md-tooltip>
+                                                <md-icon class=" sucessbtn">remove_red_eye</md-icon>
+                                            </md-button>
+                                            <!--<md-button class=" tablebtn md-icon-button" ng-click="active=!active">
+                                                <md-tooltip md-direction="top">{{active ? "Set Active" : "Set Unactive"}}</md-tooltip>
+                                                <md-icon ng-class="active ? 'warnbtn' : 'sucessbtn' ">{{active ? "block" : "check"}}</md-icon>
+                                            </md-button>-->
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </md-table-container>
+                        <md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{tabledata.count}}" md-on-paginate="" md-page-select></md-table-pagination>
+                    </md-card>
+                </div>
+            </div>
+        </md-content>
+    </section>
+</body>
+<script>
+</script>
+
+</html>

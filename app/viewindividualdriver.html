@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>View Driver</title>
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/angular-material.min.css">
+    <link rel="stylesheet" href="fonts/material-icons.css">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <script src="js/libs/angular.min.js"></script>
+    <script src="js/libs/angular-animate.min.js"></script>
+    <script src="js/libs/angular-aria.min.js"></script>
+    <script src="js/libs/angular-messages.min.js"></script>
+    <script src="js/libs/angular-sanitize.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLIpr6B8yOl_TBZCBamlv7QfloPvBI7Ws"></script>
+    <script src="js/libs/angular-material.min.js"></script>
+    <script src="js/libs/md-data-table.min.js"></script>
+    <script src="js/libs/lf-ng-md-file-input.min.js"></script>
+    <script src='js/libs/moment.min.js'></script>
+    <script src='js/libs/picker.js'></script>
+    <script src="js/app.js"></script>
+    <script src="js/directives/directives.js"></script>
+
+    <!--<script src="js/controllers/homepageCtrl.js"></script>
+    <script src="js/controllers/driverlistingCtrl.js"></script>
+    <script src="js/controllers/drivertripdetailsCtrl.js"></script>
+    <script src="js/controllers/companylistingCtrl.js"></script>
+    <script src="js/controllers/viewallvehiclesCtrl.js"></script>
+    <script src="js/controllers/viewalldriversCtrl.js"></script>
+    <script src="js/controllers/companydetailCtrl.js"></script>
+    <script src="js/controllers/currentBookingCtrl.js"></script>
+    <script src="js/controllers/bookinghistoryCtrl.js"></script>
+    <script src="js/controllers/cancelledbookingCtrl.js"></script>
+    <script src="js/controllers/servicesCtrl.js"></script>
+    <script src="js/controllers/vehiclemasterCtrl.js"></script>
+    <script src="js/controllers/vehicleserviceCtrl.js"></script>
+    <script src="js/controllers/viewvehicleCtrl.js"></script>
+    <script src="js/controllers/documentmasterCtrl.js"></script>-->
+    <script src="js/controllers/viewindividualdriverCtrl.js"></script>
+    <!--<script src="js/controllers/userlistingCtrl.js"></script>
+    <script src="js/controllers/customerRelatedDelayCtrl.js"></script>
+    <script src="js/controllers/customerRelatedDelayViewCtrl.js"></script>
+    <script src="js/controllers/settingCtrl.js"></script>
+    <script src="js/controllers/subadminlistingCtrl.js"></script>
+    <script src="js/controllers/addeditsubadminCtrl.js"></script>
+    <script src="js/controllers/invoiceCustomerCtrl.js"></script>
+    <script src="js/controllers/invoiceDriverCtrl.js"></script>
+    <script src="js/controllers/invoiceCompanyCtrl.js"></script>
+    <script src="js/controllers/drivertrackCtrl.js"></script>
+    <script src="js/controllers/vehicledetailsCtrl.js"></script>
+    <script src="js/controllers/userdetailsCtrl.js"></script>
+    <script src="js/controllers/companydriverdetailsCtrl.js"></script>-->
+</head>
+
+<body ng-app="Freight" ng-controller="ViewIndividualDriverCtrl" layout="row" ng-cloak>
+    <sidenav drivernotificationcount></sidenav>
+    <section layout="column" flex>
+        <md-toolbar class="md-primary" md-whiteframe=2>
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" ng-click="toggleSidenav('left')">
+                    <md-icon>menu</md-icon>
+                </md-button>
+                <h2>
+                    <div>FREIGHT</span>
+                </h2>
+                <span flex></span>
+                </div>
+        </md-toolbar>
+        <md-content class="mdcontent tworem_mb">
+            <div flex-gt-md="60" flex-offset-gt-md="20" flex>
+                <div class="contentt ">
+                    <div layout="row" class="pagetitle" layout-align="start center">
+                        <img src="img/title_indicator.svg" alt="">
+                        <h2 class="md-display-1 ">DRIVER DETAILS</h2>
+                    </div>
+                    <md-divider></md-divider>
+                    <div layout="row" class="breadcrumbs" layout-align="start center" flex>
+                        <a class="hovercol" href="index.php">
+                            <md-icon class="font20 ">home</md-icon><span>Home</span>
+                        </a>
+                        <a class="hovercol" href="company_listing.php">
+                            <md-icon class="">keyboard_arrow_right</md-icon><span>Drivers</span>
+                        </a>
+                        <a class="hovercol" href="#">
+                            <md-icon class="">keyboard_arrow_right</md-icon><span>Driver Details</span>
+                        </a>
+                    </div>
+                    <md-divider class="onerem_mt"></md-divider>
+                    <div>
+                        <div layout="row" layout-align="start center" class=" tworem_mt">
+                            <h1 class="md-title default-text-color">Personal Details </h1>
+                            <div flex></div>
+                            <md-switch ng-model="data.cb1" class="md-primary">
+                                REJECT
+                            </md-switch>
+                        </div>
+                        <div layout="row" layout-padding>
+                            <div class="default-text-color">Name</div>
+                            <div flex></div>
+                            <div>John</div>
+                        </div>
+                        <div layout="row" layout-padding>
+                            <div class="default-text-color">Location</div>
+                            <div flex></div>
+                            <div>Panajim</div>
+                        </div>
+                        <div layout="row" flex layout-align="start center" layout-padding>
+                            <div flex class="">Doc Name</div>
+                            <div flex-gt-md="30" flex>
+                                <span class="default-text-color">Expiry Date : </span>12-12-2016
+                            </div>
+                            <div flex="10">
+                                <md-button class=" tablebtn md-icon-button" ng-click="viewAttachment($event)">
+                                    <md-tooltip md-direction="top">View Trip</md-tooltip>
+                                    <md-icon class=" ">remove_red_eye</md-icon>
+                                </md-button>
+                            </div>
+                        </div>
+
+                        <div layout="row" layout-align="start center" class=" tworem_mt">
+                            <h1 class="md-title default-text-color">Vehicle Details </h1>
+                            <div flex></div>
+                            <md-switch ng-model="data.cb1" class="md-primary">
+                                REJECT
+                            </md-switch>
+                        </div>
+                        <div layout="row" layout-padding>
+                            <div class="default-text-color">Registration No.</div>
+                            <div flex></div>
+                            <div>65466</div>
+                        </div>
+                        <div layout="row" layout-padding>
+                            <div class="default-text-color">Vehicle Type</div>
+                            <div flex></div>
+                            <div>Type</div>
+                        </div>
+                        <div layout="row" layout-padding>
+                            <div class="default-text-color">Body Type</div>
+                            <div flex></div>
+                            <div>Type</div>
+                        </div>
+                        <div layout="row" layout-padding>
+                            <div class="default-text-color">Make</div>
+                            <div flex></div>
+                            <div>make</div>
+                        </div>
+                        <div layout="row" layout-padding>
+                            <div class="default-text-color">Model</div>
+                            <div flex></div>
+                            <div>model</div>
+                        </div>
+                        <div layout="row" layout-padding>
+                            <div class="default-text-color">Pallet Spaces</div>
+                            <div flex></div>
+                            <div>5</div>
+                        </div>
+                        <div layout="row" flex layout-align="start center" layout-padding>
+                            <div flex class="">Doc Name</div>
+                            <div flex-gt-md="30" flex>
+                                <span class="default-text-color">Expiry Date : </span>12-12-2016
+                            </div>
+                            <div flex="10">
+                                <md-button class=" tablebtn md-icon-button" ng-click="viewAttachment($event)">
+                                    <md-tooltip md-direction="top">View Trip</md-tooltip>
+                                    <md-icon class=" ">remove_red_eye</md-icon>
+                                </md-button>
+                            </div>
+                        </div>
+                        <div layout="row" layout-align="start center" class=" tworem_mt">
+                            <h1 class="md-title default-text-color">Bank Details </h1>
+
+                        </div>
+                        <div layout="row" layout-padding>
+                            <div class="default-text-color">Bank Name</div>
+                            <div flex></div>
+                            <div>SBI</div>
+                        </div>
+                        <div layout="row" layout-padding>
+                            <div class="default-text-color">Bank Location</div>
+                            <div flex></div>
+                            <div>Panjim</div>
+                        </div>
+                        <div layout="row" layout-padding>
+                            <div class="default-text-color">ABN</div>
+                            <div flex></div>
+                            <div>45444545</div>
+                        </div>
+                        <div layout="row" layout-padding>
+                            <div class="default-text-color">Account Name</div>
+                            <div flex></div>
+                            <div>ABCC</div>
+                        </div>
+                        <div layout="row" layout-padding>
+                            <div class="default-text-color">BSB</div>
+                            <div flex></div>
+                            <div>5454</div>
+                        </div>
+                        <div layout="row" layout-padding>
+                            <div class="default-text-color">Account Number</div>
+                            <div flex></div>
+                            <div>445454</div>
+                        </div>
+                        <div layout="row" flex layout-align="start center" layout-padding>
+                            <div flex class="">Doc Name</div>
+                            <div flex-gt-md="30" flex>
+                                <span class="default-text-color">Expiry Date : </span>12-12-2016
+                            </div>
+                            <div flex="10">
+                                <md-button class=" tablebtn md-icon-button" ng-click="viewAttachment($event)">
+                                    <md-tooltip md-direction="top">View Trip</md-tooltip>
+                                    <md-icon class=" ">remove_red_eye</md-icon>
+                                </md-button>
+                            </div>
+                        </div>
+
+                        <md-divider></md-divider>
+
+
+                        <div layout="row" layout-align="start center" class="onerem_mt">
+                            <div flex></div>
+                            <md-button class=" sucessbtn ">accept</md-button>
+                            <md-button class="warnbtn " ng-click="companyRejectDialog()">reject</md-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </md-content>
+    </section>
+</body>
+<script>
+</script>
+
+</html>

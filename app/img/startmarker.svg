@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+    <defs>
+        <style>
+        .a {
+            fill: #a5a5a5;
+            opacity: 0.9;
+        }
+        
+        .b {
+            fill: #008200;
+        }
+        </style>
+    </defs>
+    <title>startmarker</title>
+    <ellipse class="a"  cx="24" cy="41.4" rx="24" ry="6.6" />
+    <path class="b"  d="M34.5,4.4h0a15,15,0,0,0-21.3,0h0C7.9,9.7,7.3,19.7,11.8,25.7L23.9,43l12-17.4C40.4,19.7,39.8,9.7,34.5,4.4ZM24,24.3a9.4,9.4,0,1,1,9.4-9.4A9.4,9.4,0,0,1,24,24.3Z" transform="translate(0 0)" />
+</svg>

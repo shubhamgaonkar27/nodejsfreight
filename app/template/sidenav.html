@@ -1,0 +1,144 @@
+<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" role="sidenav" md-component-id="left">
+    <md-toolbar class="md-tall md-hue-2 sidenavbg" layout-align="end end">
+        <div class="md-toolbar-tools" layout layout-align="start center">
+            <md-icon style="margin-right: 1rem; font-size: 34px;">face</md-icon>
+            <div layout="column">
+                <span class="md-body-2">User Name</span>
+                <span class="md-caption">username@gmail.com</span>
+            </div>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+    <md-content role="navigation" layout="column" flex>
+        <!--  <md-list class="menulist" ng-repeat="data in sidemenudata">
+            <md-list-item ng-click="data.expand = !data.expand" >
+                <p class="md-subheader ">{{data.title}}</p>
+                <span flex></span>
+                <md-icon ng-show="data.subcontent" class=" md-icon-button">{{data.expand ? 'arrow_drop_up' : 'arrow_drop_down'}}</md-icon>
+            </md-list-item>
+            <md-list-item  ng-show="data.expand" ng-repeat="subdata in sidemenudata[$index].contents" ng-click="SOMEFUNCTION">
+                <md-icon>{{subdata.icon}}</md-icon>
+                <p class="md-body-2">{{subdata.subtitle}}</p>
+               
+                <md-icon>chevron_right</md-icon>
+            </md-list-item>
+            <md-divider></md-divider>
+           
+        </md-list>
+        <span flex></span> -->
+        <md-list class="menulist">
+            <md-list-item ng-href="driver_listing.html">
+                <p class="md-subheader ">Drivers</p>
+                <div flex></div>
+                <div class="notification">{{drivernotificationcount}}</div>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item ng-href="user_listing.html">
+                <p class="md-subheader ">User</p>
+                <span flex></span>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item ng-href="services.html">
+                <p class="md-subheader ">Services</p>
+                <span flex></span>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item ng-href="company_listing.html">
+                <p class="md-subheader ">Company</p>
+                <span flex></span>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item ng-href="currentbooking.html">
+                <p class="md-subheader ">Bookings</p>
+                <span flex></span>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item ng-href="customerrelateddelay.html">
+                <p class="md-subheader ">Customer Related Delay</p>
+                <span flex></span>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item ng-href="vehiclemaster.html">
+                <p class="md-subheader ">Vehicle Master</p>
+                <span flex></span>
+            </md-list-item>
+            <md-divider></md-divider>
+            <!--   <md-list-item ng-click="data2.expand = !data2.expand">
+                <p class="md-subheader ">Tracking</p>
+                <span flex></span>
+                <md-icon class=" md-icon-button">{{data2.expand ? 'arrow_drop_up' : 'arrow_drop_down'}}</md-icon>
+            </md-list-item>
+            <md-list-item ng-show="data2.expand" ng-href="delidrivertrack.php">
+                <md-icon>person</md-icon>
+                <p class="md-body-2">Delivery Driver</p>
+                <md-icon>chevron_right</md-icon>
+            </md-list-item>
+            <md-list-item ng-show="data2.expand" ng-href="lhddrivertrack.php">
+                <md-icon>person</md-icon>
+                <p class="md-body-2">LHD Driver</p>
+                <md-icon>chevron_right</md-icon>
+            </md-list-item>
+            <md-list-item ng-show="data2.expand" ng-href="employeetrack.php">
+                <md-icon>person</md-icon>
+                <p class="md-body-2">G3 Employee</p>
+                <md-icon>chevron_right</md-icon>
+            </md-list-item> 
+                <p class="md-subheader ">Vehicle Master</p>
+                <span flex></span>
+            </md-list-item>-->
+            <md-list-item ng-href="documentmaster.html">
+                <p class="md-subheader ">Document Master</p>
+                <span flex></span>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item ng-href="bookinghistory.html">
+                <p class="md-subheader">Bookings History</p>
+                <span flex></span>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item ng-href="cancelledbooking.html">
+                <p class="md-subheader ">Cancelled Bookings/Refunded</p>
+                <span flex></span>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item ng-href="invoiceCustomer.html">
+                <p class="md-subheader ">Customer Invoices </p>
+                <span flex></span>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item ng-href="invoiceDriver.html">
+                <p class="md-subheader ">Driver Invoices </p>
+                <span flex></span>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item ng-href="invoiceCompany.html">
+                <p class="md-subheader ">Comapany Invoices </p>
+                <span flex></span>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item ng-href="subadminlisting.html">
+                <p class="md-subheader ">Sub-Admin</p>
+                <span flex></span>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item ng-href="configurations.html">
+                <p class="md-subheader ">Configurations</p>
+                <span flex></span>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item ng-href="userAlerts.html">
+                <p class="md-subheader ">User Alerts</p>
+                <span flex></span>
+            </md-list-item>
+            <md-divider></md-divider>
+
+            <md-list-item ng-href="setting.html">
+                <p class="md-subheader ">Settings</p>
+                <span flex></span>
+            </md-list-item>
+            <md-divider></md-divider>
+
+        </md-list>
+        <span flex></span>
+    </md-content>
+</md-sidenav>
